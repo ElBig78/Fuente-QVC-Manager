@@ -26,22 +26,22 @@ Partial Class FrmArticulo
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TxtCodigoPrincipal = New System.Windows.Forms.TextBox()
-        Me.TxtCodigoAuxiliar = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.CmbTipoProducto = New System.Windows.Forms.ComboBox()
-        Me.CmbCategoria = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TxtNombreCorto = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TxtNombreLargo = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.CmbSubcategoria = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.CmbMarca = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.CmbSubcategoria = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.TxtNombreLargo = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TxtNombreCorto = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CmbCategoria = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.CmbTipoProducto = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TxtCodigoAuxiliar = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TxtCodigoPrincipal = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TxtStockMinimo = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TxtStockMaximo = New System.Windows.Forms.TextBox()
@@ -49,29 +49,29 @@ Partial Class FrmArticulo
         Me.TxtCosto = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupControl3 = New DevExpress.XtraEditors.GroupControl()
-        Me.TxtPrecio1 = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.TxtPrecio3 = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.TxtPrecio2 = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.TxtPrecio4 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.TxtPrecio6 = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TxtPrecio5 = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.TxtPrecio1 = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.TxtPrecio3 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.TxtPrecio2 = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
-        Me.CmbIce = New System.Windows.Forms.ComboBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.CmbIva = New System.Windows.Forms.ComboBox()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.CmbCntaVenta = New System.Windows.Forms.ComboBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.CmbCntaCosto = New System.Windows.Forms.ComboBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.CmbCntaInventario = New System.Windows.Forms.ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.CmbCntaVenta = New System.Windows.Forms.ComboBox()
-        Me.Label23 = New System.Windows.Forms.Label()
+        Me.CmbIva = New System.Windows.Forms.ComboBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.CmbIce = New System.Windows.Forms.ComboBox()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.BtnGrabar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
@@ -130,108 +130,23 @@ Partial Class FrmArticulo
         Me.GroupControl1.TabIndex = 0
         Me.GroupControl1.Text = "Datos Generales"
         '
-        'Label2
+        'CmbMarca
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 30)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(86, 13)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Código Principal:"
+        Me.CmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbMarca.FormattingEnabled = True
+        Me.CmbMarca.Location = New System.Drawing.Point(94, 134)
+        Me.CmbMarca.Name = "CmbMarca"
+        Me.CmbMarca.Size = New System.Drawing.Size(427, 21)
+        Me.CmbMarca.TabIndex = 5
         '
-        'TxtCodigoPrincipal
+        'Label9
         '
-        Me.TxtCodigoPrincipal.Location = New System.Drawing.Point(94, 26)
-        Me.TxtCodigoPrincipal.Name = "TxtCodigoPrincipal"
-        Me.TxtCodigoPrincipal.Size = New System.Drawing.Size(100, 21)
-        Me.TxtCodigoPrincipal.TabIndex = 0
-        '
-        'TxtCodigoAuxiliar
-        '
-        Me.TxtCodigoAuxiliar.Location = New System.Drawing.Point(289, 27)
-        Me.TxtCodigoAuxiliar.Name = "TxtCodigoAuxiliar"
-        Me.TxtCodigoAuxiliar.Size = New System.Drawing.Size(232, 21)
-        Me.TxtCodigoAuxiliar.TabIndex = 1
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(200, 31)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(82, 13)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Código Auxiliar:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 57)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(77, 13)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Tipo Producto:"
-        '
-        'CmbTipoProducto
-        '
-        Me.CmbTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbTipoProducto.FormattingEnabled = True
-        Me.CmbTipoProducto.Items.AddRange(New Object() {"BIEN", "SERVICIO"})
-        Me.CmbTipoProducto.Location = New System.Drawing.Point(94, 53)
-        Me.CmbTipoProducto.Name = "CmbTipoProducto"
-        Me.CmbTipoProducto.Size = New System.Drawing.Size(427, 21)
-        Me.CmbTipoProducto.TabIndex = 2
-        '
-        'CmbCategoria
-        '
-        Me.CmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbCategoria.FormattingEnabled = True
-        Me.CmbCategoria.Location = New System.Drawing.Point(94, 161)
-        Me.CmbCategoria.Name = "CmbCategoria"
-        Me.CmbCategoria.Size = New System.Drawing.Size(427, 21)
-        Me.CmbCategoria.TabIndex = 6
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 165)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(58, 13)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "Categoría:"
-        '
-        'TxtNombreCorto
-        '
-        Me.TxtNombreCorto.Location = New System.Drawing.Point(94, 80)
-        Me.TxtNombreCorto.MaxLength = 50
-        Me.TxtNombreCorto.Name = "TxtNombreCorto"
-        Me.TxtNombreCorto.Size = New System.Drawing.Size(427, 21)
-        Me.TxtNombreCorto.TabIndex = 3
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 84)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(78, 13)
-        Me.Label6.TabIndex = 8
-        Me.Label6.Text = "Nombre Corto:"
-        '
-        'TxtNombreLargo
-        '
-        Me.TxtNombreLargo.Location = New System.Drawing.Point(94, 107)
-        Me.TxtNombreLargo.MaxLength = 150
-        Me.TxtNombreLargo.Name = "TxtNombreLargo"
-        Me.TxtNombreLargo.Size = New System.Drawing.Size(427, 21)
-        Me.TxtNombreLargo.TabIndex = 4
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 111)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(78, 13)
-        Me.Label7.TabIndex = 10
-        Me.Label7.Text = "Nombre Largo:"
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(6, 138)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(40, 13)
+        Me.Label9.TabIndex = 14
+        Me.Label9.Text = "Marca:"
         '
         'CmbSubcategoria
         '
@@ -251,23 +166,112 @@ Partial Class FrmArticulo
         Me.Label8.TabIndex = 12
         Me.Label8.Text = "SubCategoría:"
         '
-        'CmbMarca
+        'TxtNombreLargo
         '
-        Me.CmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbMarca.FormattingEnabled = True
-        Me.CmbMarca.Location = New System.Drawing.Point(94, 134)
-        Me.CmbMarca.Name = "CmbMarca"
-        Me.CmbMarca.Size = New System.Drawing.Size(427, 21)
-        Me.CmbMarca.TabIndex = 5
+        Me.TxtNombreLargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtNombreLargo.Location = New System.Drawing.Point(94, 107)
+        Me.TxtNombreLargo.MaxLength = 150
+        Me.TxtNombreLargo.Name = "TxtNombreLargo"
+        Me.TxtNombreLargo.Size = New System.Drawing.Size(427, 21)
+        Me.TxtNombreLargo.TabIndex = 4
         '
-        'Label9
+        'Label7
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(6, 138)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(40, 13)
-        Me.Label9.TabIndex = 14
-        Me.Label9.Text = "Marca:"
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 111)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(78, 13)
+        Me.Label7.TabIndex = 10
+        Me.Label7.Text = "Nombre Largo:"
+        '
+        'TxtNombreCorto
+        '
+        Me.TxtNombreCorto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtNombreCorto.Location = New System.Drawing.Point(94, 80)
+        Me.TxtNombreCorto.MaxLength = 50
+        Me.TxtNombreCorto.Name = "TxtNombreCorto"
+        Me.TxtNombreCorto.Size = New System.Drawing.Size(427, 21)
+        Me.TxtNombreCorto.TabIndex = 3
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(6, 84)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(78, 13)
+        Me.Label6.TabIndex = 8
+        Me.Label6.Text = "Nombre Corto:"
+        '
+        'CmbCategoria
+        '
+        Me.CmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbCategoria.FormattingEnabled = True
+        Me.CmbCategoria.Location = New System.Drawing.Point(94, 161)
+        Me.CmbCategoria.Name = "CmbCategoria"
+        Me.CmbCategoria.Size = New System.Drawing.Size(427, 21)
+        Me.CmbCategoria.TabIndex = 6
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(6, 165)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(58, 13)
+        Me.Label5.TabIndex = 6
+        Me.Label5.Text = "Categoría:"
+        '
+        'CmbTipoProducto
+        '
+        Me.CmbTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbTipoProducto.FormattingEnabled = True
+        Me.CmbTipoProducto.Items.AddRange(New Object() {"BIEN", "SERVICIO"})
+        Me.CmbTipoProducto.Location = New System.Drawing.Point(94, 53)
+        Me.CmbTipoProducto.Name = "CmbTipoProducto"
+        Me.CmbTipoProducto.Size = New System.Drawing.Size(427, 21)
+        Me.CmbTipoProducto.TabIndex = 2
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(6, 57)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(77, 13)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Tipo Producto:"
+        '
+        'TxtCodigoAuxiliar
+        '
+        Me.TxtCodigoAuxiliar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtCodigoAuxiliar.Location = New System.Drawing.Point(289, 27)
+        Me.TxtCodigoAuxiliar.Name = "TxtCodigoAuxiliar"
+        Me.TxtCodigoAuxiliar.Size = New System.Drawing.Size(232, 21)
+        Me.TxtCodigoAuxiliar.TabIndex = 1
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(200, 31)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(82, 13)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Código Auxiliar:"
+        '
+        'TxtCodigoPrincipal
+        '
+        Me.TxtCodigoPrincipal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtCodigoPrincipal.Location = New System.Drawing.Point(94, 26)
+        Me.TxtCodigoPrincipal.Name = "TxtCodigoPrincipal"
+        Me.TxtCodigoPrincipal.Size = New System.Drawing.Size(100, 21)
+        Me.TxtCodigoPrincipal.TabIndex = 0
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 30)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(86, 13)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Código Principal:"
         '
         'TxtStockMinimo
         '
@@ -349,60 +353,6 @@ Partial Class FrmArticulo
         Me.GroupControl3.TabIndex = 1
         Me.GroupControl3.Text = "Datos de Control y Precio"
         '
-        'TxtPrecio1
-        '
-        Me.TxtPrecio1.Location = New System.Drawing.Point(254, 29)
-        Me.TxtPrecio1.Name = "TxtPrecio1"
-        Me.TxtPrecio1.Size = New System.Drawing.Size(100, 21)
-        Me.TxtPrecio1.TabIndex = 3
-        Me.TxtPrecio1.Text = "0.00"
-        Me.TxtPrecio1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(202, 33)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(49, 13)
-        Me.Label13.TabIndex = 6
-        Me.Label13.Text = "Precio 1:"
-        '
-        'TxtPrecio3
-        '
-        Me.TxtPrecio3.Location = New System.Drawing.Point(254, 83)
-        Me.TxtPrecio3.Name = "TxtPrecio3"
-        Me.TxtPrecio3.Size = New System.Drawing.Size(100, 21)
-        Me.TxtPrecio3.TabIndex = 5
-        Me.TxtPrecio3.Text = "0.00"
-        Me.TxtPrecio3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(202, 87)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(49, 13)
-        Me.Label14.TabIndex = 4
-        Me.Label14.Text = "Precio 3:"
-        '
-        'TxtPrecio2
-        '
-        Me.TxtPrecio2.Location = New System.Drawing.Point(254, 56)
-        Me.TxtPrecio2.Name = "TxtPrecio2"
-        Me.TxtPrecio2.Size = New System.Drawing.Size(100, 21)
-        Me.TxtPrecio2.TabIndex = 4
-        Me.TxtPrecio2.Text = "0.00"
-        Me.TxtPrecio2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(202, 60)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(49, 13)
-        Me.Label15.TabIndex = 2
-        Me.Label15.Text = "Precio 2:"
-        '
         'TxtPrecio4
         '
         Me.TxtPrecio4.Location = New System.Drawing.Point(421, 29)
@@ -457,6 +407,60 @@ Partial Class FrmArticulo
         Me.Label18.TabIndex = 8
         Me.Label18.Text = "Precio 5:"
         '
+        'TxtPrecio1
+        '
+        Me.TxtPrecio1.Location = New System.Drawing.Point(254, 29)
+        Me.TxtPrecio1.Name = "TxtPrecio1"
+        Me.TxtPrecio1.Size = New System.Drawing.Size(100, 21)
+        Me.TxtPrecio1.TabIndex = 3
+        Me.TxtPrecio1.Text = "0.00"
+        Me.TxtPrecio1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(202, 33)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(49, 13)
+        Me.Label13.TabIndex = 6
+        Me.Label13.Text = "Precio 1:"
+        '
+        'TxtPrecio3
+        '
+        Me.TxtPrecio3.Location = New System.Drawing.Point(254, 83)
+        Me.TxtPrecio3.Name = "TxtPrecio3"
+        Me.TxtPrecio3.Size = New System.Drawing.Size(100, 21)
+        Me.TxtPrecio3.TabIndex = 5
+        Me.TxtPrecio3.Text = "0.00"
+        Me.TxtPrecio3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(202, 87)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(49, 13)
+        Me.Label14.TabIndex = 4
+        Me.Label14.Text = "Precio 3:"
+        '
+        'TxtPrecio2
+        '
+        Me.TxtPrecio2.Location = New System.Drawing.Point(254, 56)
+        Me.TxtPrecio2.Name = "TxtPrecio2"
+        Me.TxtPrecio2.Size = New System.Drawing.Size(100, 21)
+        Me.TxtPrecio2.TabIndex = 4
+        Me.TxtPrecio2.Text = "0.00"
+        Me.TxtPrecio2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(202, 60)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(49, 13)
+        Me.Label15.TabIndex = 2
+        Me.Label15.Text = "Precio 2:"
+        '
         'GroupControl2
         '
         Me.GroupControl2.Controls.Add(Me.CmbCntaVenta)
@@ -475,41 +479,23 @@ Partial Class FrmArticulo
         Me.GroupControl2.TabIndex = 2
         Me.GroupControl2.Text = "Datos Contables"
         '
-        'CmbIce
+        'CmbCntaVenta
         '
-        Me.CmbIce.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbIce.FormattingEnabled = True
-        Me.CmbIce.Location = New System.Drawing.Point(94, 32)
-        Me.CmbIce.Name = "CmbIce"
-        Me.CmbIce.Size = New System.Drawing.Size(427, 21)
-        Me.CmbIce.TabIndex = 0
+        Me.CmbCntaVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbCntaVenta.FormattingEnabled = True
+        Me.CmbCntaVenta.Location = New System.Drawing.Point(94, 139)
+        Me.CmbCntaVenta.Name = "CmbCntaVenta"
+        Me.CmbCntaVenta.Size = New System.Drawing.Size(427, 21)
+        Me.CmbCntaVenta.TabIndex = 4
         '
-        'Label19
+        'Label23
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(6, 36)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(28, 13)
-        Me.Label19.TabIndex = 6
-        Me.Label19.Text = "ICE:"
-        '
-        'CmbIva
-        '
-        Me.CmbIva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbIva.FormattingEnabled = True
-        Me.CmbIva.Location = New System.Drawing.Point(94, 59)
-        Me.CmbIva.Name = "CmbIva"
-        Me.CmbIva.Size = New System.Drawing.Size(427, 21)
-        Me.CmbIva.TabIndex = 1
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(6, 63)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(28, 13)
-        Me.Label20.TabIndex = 8
-        Me.Label20.Text = "IVA:"
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(6, 143)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(63, 13)
+        Me.Label23.TabIndex = 14
+        Me.Label23.Text = "Cta. Venta:"
         '
         'CmbCntaCosto
         '
@@ -547,23 +533,41 @@ Partial Class FrmArticulo
         Me.Label22.TabIndex = 10
         Me.Label22.Text = "Cta. Inventario:"
         '
-        'CmbCntaVenta
+        'CmbIva
         '
-        Me.CmbCntaVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbCntaVenta.FormattingEnabled = True
-        Me.CmbCntaVenta.Location = New System.Drawing.Point(94, 139)
-        Me.CmbCntaVenta.Name = "CmbCntaVenta"
-        Me.CmbCntaVenta.Size = New System.Drawing.Size(427, 21)
-        Me.CmbCntaVenta.TabIndex = 4
+        Me.CmbIva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbIva.FormattingEnabled = True
+        Me.CmbIva.Location = New System.Drawing.Point(94, 59)
+        Me.CmbIva.Name = "CmbIva"
+        Me.CmbIva.Size = New System.Drawing.Size(427, 21)
+        Me.CmbIva.TabIndex = 1
         '
-        'Label23
+        'Label20
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(6, 143)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(63, 13)
-        Me.Label23.TabIndex = 14
-        Me.Label23.Text = "Cta. Venta:"
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(6, 63)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(28, 13)
+        Me.Label20.TabIndex = 8
+        Me.Label20.Text = "IVA:"
+        '
+        'CmbIce
+        '
+        Me.CmbIce.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbIce.FormattingEnabled = True
+        Me.CmbIce.Location = New System.Drawing.Point(94, 32)
+        Me.CmbIce.Name = "CmbIce"
+        Me.CmbIce.Size = New System.Drawing.Size(427, 21)
+        Me.CmbIce.TabIndex = 0
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(6, 36)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(28, 13)
+        Me.Label19.TabIndex = 6
+        Me.Label19.Text = "ICE:"
         '
         'BtnCancelar
         '

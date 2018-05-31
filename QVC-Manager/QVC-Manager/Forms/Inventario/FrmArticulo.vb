@@ -1,7 +1,7 @@
 ﻿Public Class FrmArticulo
     Dim ObjCrud As ClassCRUD
     Dim Query As String = ""
-    Public CodigoArticuloSeleccionado As String = ""
+    Public CodigoArticuloSeleccionado As String = "0"
     Dim dTableCuentaInventario As New DataTable
     Dim dTableCuentaCosto As New DataTable
     Dim dTableCuentaVenta As New DataTable
@@ -94,5 +94,112 @@
 
     Private Sub CmbCategoria_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbCategoria.SelectionChangeCommitted
         FiltrarSubCategoria()
+    End Sub
+
+    Private Sub BtnGrabar_Click(sender As Object, e As EventArgs) Handles BtnGrabar.Click
+        Grabar()
+    End Sub
+    Private Function ValidaGrabar() As Boolean
+        ValidaGrabar = True
+        If TxtCodigoPrincipal.Text = "" Then
+            MensajeError("Código Principal no puede estar vacío")
+            TxtCodigoPrincipal.Focus()
+            ValidaGrabar = False
+            Exit Function
+        ElseIf TxtNombreCorto.Text = "" Then
+            MensajeError("Nombre corto no puede estar vacío")
+            TxtNombreCorto.Focus()
+            ValidaGrabar = False
+            Exit Function
+        ElseIf TxtPrecio1.Text = "0.00" Or CInt(TxtPrecio1.Text) = 0 Or TxtPrecio1.Text = "" Then
+            MensajeError("Precio1 debe ser mayor a 0.00")
+            TxtPrecio1.Focus()
+            ValidaGrabar = False
+            Exit Function
+        End If
+    End Function
+    Private Sub Grabar()
+        If ValidaGrabar() = False Then
+            Exit Sub
+        End If
+        Dim dTable As New DataTable
+        Dim QueryAuxi As String = ""
+        Dim drow As DataRow
+        If MensajeConfirmacion("Confirma que los datos están correctos?") = False Then
+            Exit Sub
+        End If
+        Try
+            If CodigoArticuloSeleccionado = "0" Then
+                Query = String.Format("select count(*) from producto where co_prin = '{0}'", TxtCodigoPrincipal.Text)
+                dTable = ObjCrud.Retrieve(Query)
+                drow = dTable.Rows(0)
+                If CInt(drow(0).ToString) > 0 Then
+                    MensajeError("El código que intenta ingresar ya existe")
+                    Exit Sub
+                End If
+            End If
+            Query = String.Format("CALL SP_PRODUCTO_GRABAR_DESK('{0}','{1}','{2}','{3}','{4}',{5},{6},{7},{8},'{9}','{10}','{11}','{12}','{13}','{14}',{15},{16},{17},{18})",
+                                  TxtCodigoPrincipal.Text, TxtCodigoAuxiliar.Text, IIf(CmbTipoProducto.SelectedIndex = 0, "B", "S"), TxtNombreCorto.Text, TxtNombreLargo,
+                                  CmbMarca.SelectedValue, CmbCategoria.SelectedValue, CmbSubcategoria.SelectedValue, CDec(TxtCosto.Text), "A", "", CmbCntaInventario.SelectedValue,
+                                  CmbCntaCosto.SelectedValue, CmbCntaVenta.SelectedValue, Now.ToString("yyyy-MM-dd"), CmbIce.SelectedValue, CmbIva.SelectedValue, TxtStockMinimo.Text, TxtStockMaximo.Text)
+            'GRABAR EN TABLA PRECIOS
+            QueryAuxi = String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 1, CDec(TxtPrecio1.Text), CDec(TxtPrecio1.Text))
+            If TxtPrecio2.Text <> "0.00" And CInt(TxtPrecio2.Text) > 0 And TxtPrecio2.Text <> "" Then
+                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 2, CDec(TxtPrecio2.Text), CDec(TxtPrecio1.Text))
+            End If
+            If TxtPrecio3.Text <> "0.00" And CInt(TxtPrecio3.Text) > 0 And TxtPrecio3.Text <> "" Then
+                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 3, CDec(TxtPrecio3.Text), CDec(TxtPrecio1.Text))
+            End If
+            If TxtPrecio4.Text <> "0.00" And CInt(TxtPrecio4.Text) > 0 And TxtPrecio4.Text <> "" Then
+                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 4, CDec(TxtPrecio4.Text), CDec(TxtPrecio1.Text))
+            End If
+            If TxtPrecio5.Text <> "0.00" And CInt(TxtPrecio5.Text) > 0 And TxtPrecio5.Text <> "" Then
+                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 5, CDec(TxtPrecio5.Text), CDec(TxtPrecio1.Text))
+            End If
+            If TxtPrecio6.Text <> "0.00" And CInt(TxtPrecio6.Text) > 0 And TxtPrecio6.Text <> "" Then
+                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 6, CDec(TxtPrecio6.Text), CDec(TxtPrecio1.Text))
+            End If
+            If ObjCrud.CUD(Query, False) Then
+                If ObjCrud.CUD(QueryAuxi, False) Then
+                    If CodigoArticuloSeleccionado = "0" Then
+                        QueryAuxi = String.Format("INSERT INTO producto_bodega 
+                                               SELECT co_regi, '{0}', 0 
+                                               FROM bodega where co_regi > 0", TxtCodigoPrincipal.Text)
+                        If ObjCrud.CUD(QueryAuxi, False) Then
+                            MensajeInformacion("Proceso realizado correctamente")
+                        End If
+                    Else
+                        MensajeInformacion("Proceso realizado correctamente")
+                    End If
+                    LimpiarControles()
+                End If
+            End If
+        Catch ex As Exception
+            MensajeError("No se pudo realizar la acción solicitada")
+        End Try
+    End Sub
+    Private Sub LimpiarControles()
+        CodigoArticuloSeleccionado = "0"
+        TxtCodigoAuxiliar.Clear()
+        TxtCodigoPrincipal.Clear()
+        TxtNombreCorto.Clear()
+        TxtNombreLargo.Clear()
+        TxtCosto.Text = "0.00"
+        TxtStockMinimo.Text = "0"
+        TxtStockMaximo.Text = "0"
+        TxtPrecio1.Text = "0.00"
+        TxtPrecio2.Text = "0.00"
+        TxtPrecio3.Text = "0.00"
+        TxtPrecio4.Text = "0.00"
+        TxtPrecio5.Text = "0.00"
+        TxtPrecio6.Text = "0.00"
+        TxtCodigoPrincipal.Focus()
+    End Sub
+
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+        If MensajeConfirmacion("Confirma que desea cancelar?") = False Then
+            Exit Sub
+        End If
+        LimpiarControles()
     End Sub
 End Class

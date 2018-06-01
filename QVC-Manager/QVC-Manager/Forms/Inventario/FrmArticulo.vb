@@ -16,6 +16,56 @@
         CargarComboMarca()
         CargarCategoriaSubCategoria()
         CmbTipoProducto.SelectedIndex = 0
+        If CodigoArticuloSeleccionado <> "0" Then
+            ConsultarDatosArticulo()
+        End If
+    End Sub
+    Private Sub ConsultarDatosArticulo()
+        Try
+            Dim dTable As New DataTable
+            Dim dTablePrecios As New DataTable
+            Dim drow As DataRow
+            Query = String.Format("select * from producto where co_prin = '{0}'", CodigoArticuloSeleccionado)
+            dTable = ObjCrud.Retrieve(Query)
+            drow = dTable.Rows(0)
+            Me.TxtCodigoPrincipal.Text = drow(0).ToString
+            Me.TxtCodigoAuxiliar.Text = drow(1).ToString
+            Me.CmbTipoProducto.SelectedIndex = CInt(IIf(drow(2).ToString = "B", 0, 1))
+            Me.TxtNombreCorto.Text = drow(3).ToString
+            Me.TxtNombreLargo.Text = drow(4).ToString
+            Me.CmbMarca.SelectedValue = CInt(drow(5).ToString)
+            Me.CmbCategoria.SelectedValue = CInt(drow(6).ToString)
+            FiltrarSubCategoria()
+            Me.CmbSubcategoria.SelectedValue = CInt(drow(7).ToString)
+            Me.TxtCosto.Text = drow(8).ToString
+            Me.CmbCntaInventario.SelectedValue = CInt(drow(11).ToString)
+            Me.CmbCntaCosto.SelectedValue = CInt(drow(12).ToString)
+            Me.CmbCntaVenta.SelectedValue = CInt(drow(13).ToString)
+            Me.CmbIce.SelectedValue = CInt(drow(15).ToString)
+            Me.CmbIva.SelectedValue = CInt(drow(16).ToString)
+            Me.TxtStockMinimo.Text = drow(17).ToString
+            Me.TxtStockMaximo.Text = drow(18).ToString
+            Query = String.Format("select co_prec, mo_prec from producto_precio where co_prod = '{0}'", TxtCodigoPrincipal.Text)
+            dTablePrecios = ObjCrud.Retrieve(Query)
+            For i As Integer = 0 To dTablePrecios.Rows.Count - 1
+                drow = dTablePrecios.Rows(i)
+                If CInt(drow(0).ToString) = 1 Then
+                    Me.TxtPrecio1.Text = drow(1).ToString
+                ElseIf CInt(drow(0).ToString) = 2 Then
+                    Me.TxtPrecio2.Text = drow(1).ToString
+                ElseIf CInt(drow(0).ToString) = 3 Then
+                    Me.TxtPrecio3.Text = drow(1).ToString
+                ElseIf CInt(drow(0).ToString) = 4 Then
+                    Me.TxtPrecio4.Text = drow(1).ToString
+                ElseIf CInt(drow(0).ToString) = 5 Then
+                    Me.TxtPrecio5.Text = drow(1).ToString
+                ElseIf CInt(drow(0).ToString) = 6 Then
+                    Me.TxtPrecio6.Text = drow(1).ToString
+                End If
+            Next
+        Catch ex As Exception
+            MensajeError("No se pudo cargar la información del artículo seleccionado " & ex.Message)
+        End Try
     End Sub
     Private Sub CargarComboMarca()
         Try
@@ -139,25 +189,25 @@
                 End If
             End If
             Query = String.Format("CALL SP_PRODUCTO_GRABAR_DESK('{0}','{1}','{2}','{3}','{4}',{5},{6},{7},{8},'{9}','{10}','{11}','{12}','{13}','{14}',{15},{16},{17},{18})",
-                                  TxtCodigoPrincipal.Text, TxtCodigoAuxiliar.Text, IIf(CmbTipoProducto.SelectedIndex = 0, "B", "S"), TxtNombreCorto.Text, TxtNombreLargo,
+                                  TxtCodigoPrincipal.Text, TxtCodigoAuxiliar.Text, IIf(CmbTipoProducto.SelectedIndex = 0, "B", "S"), TxtNombreCorto.Text, TxtNombreLargo.Text,
                                   CmbMarca.SelectedValue, CmbCategoria.SelectedValue, CmbSubcategoria.SelectedValue, CDec(TxtCosto.Text), "A", "", CmbCntaInventario.SelectedValue,
                                   CmbCntaCosto.SelectedValue, CmbCntaVenta.SelectedValue, Now.ToString("yyyy-MM-dd"), CmbIce.SelectedValue, CmbIva.SelectedValue, TxtStockMinimo.Text, TxtStockMaximo.Text)
             'GRABAR EN TABLA PRECIOS
             QueryAuxi = String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 1, CDec(TxtPrecio1.Text), CDec(TxtPrecio1.Text))
             If TxtPrecio2.Text <> "0.00" And CInt(TxtPrecio2.Text) > 0 And TxtPrecio2.Text <> "" Then
-                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 2, CDec(TxtPrecio2.Text), CDec(TxtPrecio1.Text))
+                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 2, CDec(TxtPrecio2.Text), CDec(TxtPrecio2.Text))
             End If
             If TxtPrecio3.Text <> "0.00" And CInt(TxtPrecio3.Text) > 0 And TxtPrecio3.Text <> "" Then
-                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 3, CDec(TxtPrecio3.Text), CDec(TxtPrecio1.Text))
+                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 3, CDec(TxtPrecio3.Text), CDec(TxtPrecio3.Text))
             End If
             If TxtPrecio4.Text <> "0.00" And CInt(TxtPrecio4.Text) > 0 And TxtPrecio4.Text <> "" Then
-                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 4, CDec(TxtPrecio4.Text), CDec(TxtPrecio1.Text))
+                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 4, CDec(TxtPrecio4.Text), CDec(TxtPrecio4.Text))
             End If
             If TxtPrecio5.Text <> "0.00" And CInt(TxtPrecio5.Text) > 0 And TxtPrecio5.Text <> "" Then
-                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 5, CDec(TxtPrecio5.Text), CDec(TxtPrecio1.Text))
+                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 5, CDec(TxtPrecio5.Text), CDec(TxtPrecio5.Text))
             End If
             If TxtPrecio6.Text <> "0.00" And CInt(TxtPrecio6.Text) > 0 And TxtPrecio6.Text <> "" Then
-                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 6, CDec(TxtPrecio6.Text), CDec(TxtPrecio1.Text))
+                QueryAuxi = QueryAuxi & ";" & String.Format("insert into producto_precio(co_prod,co_prec,mo_prec) values('{0}',{1},{2}) on duplicate key update mo_prec = {3}", TxtCodigoPrincipal.Text, 6, CDec(TxtPrecio6.Text), CDec(TxtPrecio6.Text))
             End If
             If ObjCrud.CUD(Query, False) Then
                 If ObjCrud.CUD(QueryAuxi, False) Then

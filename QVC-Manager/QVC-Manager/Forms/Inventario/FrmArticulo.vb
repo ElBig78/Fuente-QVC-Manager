@@ -16,7 +16,9 @@
         CargarComboMarca()
         CargarCategoriaSubCategoria()
         CmbTipoProducto.SelectedIndex = 0
+        LblTitulo.Text = "Creando artículo"
         If CodigoArticuloSeleccionado <> "0" Then
+            LblTitulo.Text = "Modificando artículo"
             ConsultarDatosArticulo()
         End If
     End Sub
@@ -63,6 +65,7 @@
                     Me.TxtPrecio6.Text = drow(1).ToString
                 End If
             Next
+            TxtCodigoPrincipal.Enabled = False
         Catch ex As Exception
             MensajeError("No se pudo cargar la información del artículo seleccionado " & ex.Message)
         End Try
@@ -243,6 +246,7 @@
         TxtPrecio4.Text = "0.00"
         TxtPrecio5.Text = "0.00"
         TxtPrecio6.Text = "0.00"
+        TxtCodigoPrincipal.Enabled = True
         TxtCodigoPrincipal.Focus()
     End Sub
 

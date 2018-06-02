@@ -63,6 +63,9 @@ Partial Public Class FrmMain
         If e.Link.Caption = "ARTICULO" Then
             My.Forms.FrmArticuloListado.MdiParent = Me
             My.Forms.FrmArticuloListado.Show()
+        ElseIf e.Link.Caption = "MOVIMIENTO DE INVENTARIO" Then
+            'My.Forms.FrmMovimientoInventario.MdiParent = Me
+            My.Forms.FrmMovimientoInventario.Show()
         End If
     End Sub
 
